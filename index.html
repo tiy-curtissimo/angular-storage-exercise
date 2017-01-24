@@ -36,12 +36,14 @@
             <tr>
               <th>Key</th>
               <th>Value</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="keyValue in localKeyValues">
               <td>{{keyValue.key}}</td>
               <td>{{keyValue.value}}</td>
+              <td><button ng-click="delete('local', keyValue.key)" class="pure-button">delete</button></td>
             </tr>
           </tbody>
         </table>
@@ -59,6 +61,7 @@
             <tr ng-repeat="keyValue in sessionKeyValues">
               <td>{{keyValue.key}}</td>
               <td>{{keyValue.value}}</td>
+              <td><button ng-click="delete('session', keyValue.key)" class="pure-button">delete</button></td>
             </tr>
           </tbody>
         </table>

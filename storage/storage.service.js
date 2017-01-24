@@ -17,6 +17,9 @@
           set: function (key, value) {
             storage.setItem(key, value);
           },
+          delete: function (key) {
+            storage.removeItem(key);
+          },
           getAll: function () {
             var result = [],
                 key;
