@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>Storage Service Demonstration</title>
+    <link rel="stylesheet" href="pure-0.6.2.min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <style>header, main {max-width: 768px; margin: auto; margin-top: 4em;}</style>
+  </head>
+  <body ng-controller="DemoController">
+    <header>
+      <h1>Storage Service Demonstration</h1>
+      <div id="storage-options">
+        <form class="pure-form" novalidate ng-submit="saveKeyValuePair()">
+          <label class="pure-checkbox">
+            <input ng-model="storageType" type="radio" value="local">
+            Use local storage.
+          </label>
+          <label class="pure-checkbox">
+            <input ng-model="storageType" type="radio" value="session">
+            Use session storage.
+          </label>
+          <fieldset>
+            <legend>Set a key and value</legend>
+            <input ng-model="key" type="text" placeholder="key">
+            <input ng-model="value" type="text" placeholder="value">
+            <button type="submit" class="pure-button pure-button-primary">Save</button>
+          </fieldset>
+        </form>
+      </div>
+    </header>
+    <main>
+      <fieldset>
+        <legend>Local storage</legend>
+        <table class="pure-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="localKeyValues as keyValue">
+              <td>{{keyValue.key}}</td>
+              <td>{{keyValue.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>Session storage</legend>
+        <table class="pure-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="sessionKeyValues as keyValue">
+              <td>{{keyValue.key}}</td>
+              <td>{{keyValue.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+    </main>
+
+    <script src="angular-1.6.1.min.js"></script> 
+    <script src="app.module.js"></script>
+    <script src="storage/storage.module.js"></script>
+    <script src="storage/storage.service.js"></script>
+    <script src="demo.controller.js"></script>
+  </body>
+</html>
